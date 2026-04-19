@@ -6,8 +6,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     make \
     build-essential \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
-
 
 # Проверяем версию gcc (для уверенности)
 RUN gcc --version
