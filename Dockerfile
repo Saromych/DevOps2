@@ -41,7 +41,7 @@ WORKDIR /app
 COPY . .
 
 # Компилируем Cython модули с поддержкой PIC
-RUN cd VCT && make clean && make CFLAGS="-fcommon -fPIC" && cd ..
+RUN cd VCT && make CFLAGS="-fcommon -fPIC" && cd ..
 ENV CFLAGS="-fcommon -fPIC"
 ENV LDFLAGS="-fPIC"
 RUN python3 setup.py build_ext --inplace
