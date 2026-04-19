@@ -1,12 +1,15 @@
 # Базовый образ Python 3.11 на Debian (нужен gcc для компиляции Cython)
 FROM python:3.11-slim
 
-# Устанавливаем системные зависимости
+# Устанавливаем системные зависимости (gcc из стандартных репозиториев)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc-9 \
+    gcc \
     make \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
+
+# Создаем символическую ссылку, чтобы gcc-9 указывал на gcc (для совместимости)
+RUN ln -s /usr/bin/gcc /usr/bin/gcc-9
 
 # Делаем gcc-9 компилятором по умолчанию
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20
