@@ -1,6 +1,7 @@
 # Git
 .git
 .gitignore
+.github
 
 # Python
 __pycache__
@@ -8,29 +9,33 @@ __pycache__
 *.pyo
 *.pyd
 .Python
-*.so
-*.egg
 *.egg-info
 dist
 build
+*.egg
 
-# Jupyter
-.ipynb_checkpoints
+# Тесты и документация (не нужны в продакшн-образе)
+tests
+docs
+.tox
+.pytest_cache
+.mypy_cache
+.coverage
+*.md
+HISTORY.rst
+AUTHORS.rst
+CONTRIBUTING.rst
+
+# Инструменты разработки
+.editorconfig
+.pre-commit-config.yaml
+.python-version
+.tool-versions
+tox.ini
+Makefile
+poetry.lock
+poetry.toml
 
 # Docker
 Dockerfile
 .dockerignore
-
-# Compiled C (скомпилированные файлы не нужны в образе)
-VCT/*.o
-VCT/*.so
-*.so
-
-# Data (будет в Volume)
-/data
-*.csv
-*.png
-*.nb
-
-# Poetry
-# poetry.lock
