@@ -40,9 +40,10 @@ WORKDIR /app
 # Копируем весь исходный код
 COPY . .
 
-# Компилируем Cython модули
-RUN cd VCT && make CFLAGS="-fcommon" && cd ..
-ENV CFLAGS="-fcommon"
+# Компилируем Cython модули с поддержкой PIC
+RUN cd VCT && make clean && make CFLAGS="-fcommon -fPIC" && cd ..
+ENV CFLAGS="-fcommon -fPIC"
+ENV LDFLAGS="-fPIC"
 RUN python3 setup.py build_ext --inplace
 
 # Создаем директорию для данных (Volume)
