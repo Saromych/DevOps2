@@ -1,48 +1,56 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
+*.py[cod]
+
+# C extensions
 *.so
 
-# Packages #
-############
-# it's better to unpack these files and
-commit the raw source
-# git has its own built in compression
-methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
 
-# Logs and databases #
-######################
-*.log
-*.sql
-*.sqlite
+# Installer logs
+pip-log.txt
 
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+htmlcov
 
-gifs/
-imgs/
-maps/
-output/
-cpmfem
+# Translations
+*.mo
 
-*.a
-*.o
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Complexity
+output/*.html
+output/*/index.html
+
+# Sphinx
+docs/_build
+.idea/
+# Created by https://www.gitignore.io/api/vim
+
+### Vim ###
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+/pipreqs/*.bak
+*.nb
