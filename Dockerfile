@@ -31,11 +31,11 @@ RUN pip install poetry
 WORKDIR /app
 
 # Копируем файлы проекта
-COPY pyproject.toml poetry.lock ./
+# COPY pyproject.toml poetry.lock ./
 
 # Устанавливаем оставшиеся зависимости через Poetry (без создания venv)
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi --no-root || true
+#RUN poetry config virtualenvs.create false \
+#    && poetry install --no-interaction --no-ansi --no-root || true
 
 # Копируем весь исходный код
 COPY . .
