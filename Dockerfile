@@ -47,17 +47,19 @@ ENV LDFLAGS="-fPIC"
 RUN python3 setup.py build_ext --inplace
 
 # Создаем директорию для данных (Volume)
-RUN mkdir /data
-VOLUME /data
+#RUN mkdir /data
+#VOLUME /data
 
 # Настраиваем Jupyter Lab для доступа извне
-RUN jupyter lab --generate-config && \
-    echo "c.ServerApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.port = 8080" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.token = ''" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.password = ''" >> /root/.jupyter/jupyter_lab_config.py && \
-    echo "c.ServerApp.allow_root = True" >> /root/.jupyter/jupyter_lab_config.py
+#RUN jupyter lab --generate-config && \
+#    echo "c.ServerApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_lab_config.py && \
+#    echo "c.ServerApp.port = 8080" >> /root/.jupyter/jupyter_lab_config.py && \
+#    echo "c.ServerApp.token = ''" >> /root/.jupyter/jupyter_lab_config.py && \
+#    echo "c.ServerApp.password = ''" >> /root/.jupyter/jupyter_lab_config.py && \
+#    echo "c.ServerApp.allow_root = True" >> /root/.jupyter/jupyter_lab_config.py
 
-EXPOSE 8080
+#EXPOSE 8080
 
-CMD ["jupyter", "lab", "--notebook-dir=/data", "--allow-root"]
+#CMD ["jupyter", "lab", "--notebook-dir=/data", "--allow-root"]
+
+CMD ["sh", "-c", "jupyter nbconvert --to python example.ipynb --stdout | python3"]
