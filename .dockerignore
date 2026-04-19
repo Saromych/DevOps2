@@ -1,0 +1,36 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# Jupyter
+.ipynb_checkpoints
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Compiled C (скомпилированные файлы не нужны в образе)
+VCT/*.o
+VCT/*.so
+*.so
+
+# Data (будет в Volume)
+/data
+*.csv
+*.png
+*.nb
+
+# Poetry
+poetry.lock

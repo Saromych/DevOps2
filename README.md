@@ -1,18 +1,16 @@
-# pyVCT
-Virtual Cardiac Tissue Model – A Cellular Potts Model for cardiac monolayers that reproduces fibrotic patterns
+# DevOps2 - Dockerized pyVCT (Cardiac Tissue Model)
 
-## Build instructions
-`sudo apt-get install gcc-9`
-`sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20`
-`gcc --version`
-`check if gcc version ==9.x.x`
-`if not do: sudo update-alternatives --config gcc`
-`choose gcc-9 version`
-`pip install cython==0.29.32 pyyaml numpy jupyterlab wandb scikit-image feret pandas seaborn numpngw`  
-`git clone https://github.com/CardioBioLab/pyVCT.git`  
-`cd VCT`  
-`make`  
-`cd ..`  
-`python3 setup.py build_ext --inplace`    
-## Usage
-`run example.ipynb file`
+## Что делает проект
+Это контейнеризированная версия научного проекта pyVCT — модели виртуальной сердечной ткани на основе Cellular Potts Model. Проект симулирует поведение клеток сердечной ткани и воспроизводит фиброзные паттерны. Результаты работы — изображения PNG и данные в формате CSV.
+
+## Какой вариант задания выбран и почему
+Выбран **Вариант 3 («Данные не теряются»)**.
+
+Модель генерирует файлы (изображения PNG, датасеты CSV) при запуске Jupyter ноутбука. Чтобы результаты расчетов не пропадали после остановки контейнера, используется Docker Volume (`app-data`). Это позволяет преподавателю убедиться, что после перезапуска контейнера все созданные файлы остаются на месте.
+
+## Как запустить
+
+### 1. Клонирование репозитория
+```bash
+git clone git@github.com:Saromych/DevOps2.git
+cd DevOps2
